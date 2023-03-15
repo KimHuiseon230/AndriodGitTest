@@ -2,17 +2,41 @@ package com.example.andriodgithubtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import com.example.andriodgithubtest.databinding.ActivitySub3Binding
+import android.util.Log
+import android.view.View
+import com.example.andriodgithubtest.databinding.ActivitySub4Binding
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySub3Binding
+    lateinit var binding: ActivitySub4Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=ActivitySub3Binding.inflate(layoutInflater)
-        setContentView(binding.root) //activity에 만든 xml 화면을 딱 매치시켜서 보여준다.
-        //우리는 뷰바인딩을 사용해서 가져옴(알아서 일므을 바뀜)
-        //setters getters 을 사용해서 5가지의 기능을 처리할 수 있음.
-        binding.btnName2.text="홍수련"
+        binding = ActivitySub4Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+        with(binding) {
+            thread(start = true) { ->
+                Thread.sleep(3000)
+                runOnUiThread {
+                    progressBar.visibility = View.GONE
+                }
+            }
+        }//end with
+        binding.RadioGroup.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                //logcat에서 확인 가능
+                R.id.radioButton  -> { Log.d("첫번째 선택","사과가 선택되었습니다.")}
+                R.id.radioButton2 -> { Log.d("두번째 선택","배가 선택되었습니다.")}
+                R.id.radioButton3 -> { Log.d("세번째 선택","바나나가 선택되었습니다.")}
+            }
+        }
     }
 }
+
+/*@ viewbinding 사용하는 방법
+        1. gradle script >  viewBinding{ enabled = true } 추가
+        2. lateinit var binding: 사용하여 불러올 Activity xml 파일 불러오기
+        3. binding=ActivitySub4Binding.inflate(layoutInflater) 추가
+        4. setContentView(binding.root) 수정  //activity에 만든 xml 화면을 딱 매치 시켜서 보여준다.
+*/
+
+
