@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndriodGitHubTest</string>
+    <string name="title">MyTitle</string>
 </resources>
