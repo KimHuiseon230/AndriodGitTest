@@ -2,17 +2,16 @@ package com.example.andriodgithubtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.InputType
-import android.widget.Toast
-import com.example.andriodgithubtest.databinding.ActivitySub18Binding
-
+import com.example.andriodgithubtest.databinding.ActivitySub6Binding
+import com.example.andriodgithubtest.databinding.ActivitySub7Binding
+import com.example.andriodgithubtest.databinding.ActivitySub8Binding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySub18Binding
+    lateinit var binding: ActivitySub8Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySub18Binding.inflate(layoutInflater)
+        binding = ActivitySub8Binding.inflate(layoutInflater)
         setContentView(binding.root)
     }
 }
