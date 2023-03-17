@@ -2,67 +2,50 @@ package com.example.andriodgithubtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.andriodgithubtest.databinding.ActivitySub6Binding
-import com.example.andriodgithubtest.databinding.ActivitySub7Binding
-import com.example.andriodgithubtest.databinding.ActivitySub8Binding
+import android.view.View
+import android.widget.Toast
+import com.example.andriodgithubtest.databinding.ActivitySub23Binding
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySub8Binding
+    lateinit var binding: ActivitySub23Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySub8Binding.inflate(layoutInflater)
+        binding = ActivitySub23Binding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnSelect1.setOnClickListener {
+            binding.screen1.visibility = View.VISIBLE
+            binding.screen2.visibility = View.INVISIBLE
+        }
+        binding.btnSelect2.setOnClickListener {
+            binding.screen1.visibility = View.INVISIBLE
+            binding.screen2.visibility = View.VISIBLE
+        }
+        //FameLayout->Linerlayout 1번 화면
+        binding.imgPic1.setOnClickListener {
+            Toast.makeText(this, "1번 화면입니다!", Toast.LENGTH_SHORT).show()
+        }
+        //FameLayout->Linerlayout 2번 화면
+        binding.imgPic2.setOnClickListener {
+            Toast.makeText(this, "2번 화면입니다!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
 
-/* 다른 방법으로 출력하기
-binding2.tvClick.setOnLongClickListener(){
-    Toast.makeText(applicationContext,binding2.edPassword.text.toString(),Toast.LENGTH_SHORT).show()
-    return@setOnLongClickListener(true) <-- 반드시 꼭 사용해함 -->
-}
-*/
+/* 암호를 보여줬다 감추는 이벤트 처리
+binding.chbVisible.isChecked = false
+binding.chbVisible.text = "invisible"
 
-/* 기본 방법으로 출력하기
-binding2.tvClick.setOnClickListener() {
-    binding2.edPassword.inputType = InputType.TYPE_TEXT_VARIATION_NORMAL
-    Toast.makeText( applicationContext,binding2.edPassword.text.toString(),Toast.LENGTH_SHORT).show()
+binding.chbVisible.setOnClickListener {
+    //암호를 보여줄 것
+    if (binding.chbVisible.isChecked == true) {
+        binding.edtPassword2.inputType = InputType.TYPE_CLASS_TEXT
+        binding.chbVisible.text = "visible"
+    }
+    //암호를 보여주지 말것
+    else {
+        binding.edtPassword2.inputType =
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        binding.chbVisible.text = "invisible"
+    }
 }*/
-
-/*@ viewbinding 사용하는 방법
-        1. gradle script >  viewBinding{ enabled = true } 추가
-        2. lateinit var binding: 사용하여 불러올 Activity xml 파일 불러오기
-        3. binding=ActivitySub4Binding.inflate(layoutInflater) 추가
-        4. setContentView(binding.root) 수정  //activity에 만든 xml 화면을 딱 매치 시켜서 보여준다.
-*/
-
-/*@ 로딩 화면 함수
-    with(binding) {
-            thread(start = true) { ->
-                Thread.sleep(3000)
-                runOnUiThread {
-                    progressBar.visibility = View.GONE
-                }
-            }
-        }//end with
-        binding.RadioGroup.setOnCheckedChangeListener { group, checkedId ->
-            when(checkedId){
-                //logcat에서 확인 가능
-                R.id.radioButton  -> { Log.d("첫번째 선택","사과가 선택되었습니다.")}
-                R.id.radioButton2 -> { Log.d("두번째 선택","배가 선택되었습니다.")}
-                R.id.radioButton3 -> { Log.d("세번째 선택","바나나가 선택되었습니다.")}
-            }
-        }*/
-
-/* @버튼 클릭 함수
-    binding.btnClick.setOnClickListener {
-           if (flag == true) {
-               binding.btnTarget.visibility = View.VISIBLE
-               binding.btnClick.visibility = View.VISIBLE
-               flag = true
-           } else {
-               binding.btnTarget.visibility = View.VISIBLE
-               binding.btnClick.visibility = View.VISIBLE
-               flag = false
-           }
-       }*/

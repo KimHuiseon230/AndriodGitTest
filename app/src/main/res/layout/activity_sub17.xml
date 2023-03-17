@@ -17,7 +17,7 @@
             android:layout_height="88dp"
             android:adjustViewBounds="true"
             android:padding="10dp"
-            app:srcCompat="@drawable/img001" />
+            app:srcCompat="@drawable/kakotalk" />
 
         <LinearLayout
             android:layout_width="match_parent"
