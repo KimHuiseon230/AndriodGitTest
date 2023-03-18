@@ -13,24 +13,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySub23Binding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.btnSelect1.setOnClickListener {
-            binding.screen1.visibility = View.VISIBLE
-            binding.screen2.visibility = View.INVISIBLE
-        }
-        binding.btnSelect2.setOnClickListener {
-            binding.screen1.visibility = View.INVISIBLE
-            binding.screen2.visibility = View.VISIBLE
-        }
-        //FameLayout->Linerlayout 1번 화면
-        binding.imgPic1.setOnClickListener {
-            Toast.makeText(this, "1번 화면입니다!", Toast.LENGTH_SHORT).show()
-        }
-        //FameLayout->Linerlayout 2번 화면
-        binding.imgPic2.setOnClickListener {
-            Toast.makeText(this, "2번 화면입니다!", Toast.LENGTH_SHORT).show()
-        }
     }
 }
+
+/*binding.btnSelect1.setOnClickListener {
+    binding.screen1.visibility = View.VISIBLE
+    binding.screen2.visibility = View.INVISIBLE
+}
+binding.btnSelect2.setOnClickListener {
+    binding.screen1.visibility = View.INVISIBLE
+    binding.screen2.visibility = View.VISIBLE
+}
+//FameLayout->Linerlayout 1번 화면
+binding.imgPic1.setOnClickListener {
+    Toast.makeText(this, "1번 화면입니다!", Toast.LENGTH_SHORT).show()
+}
+//FameLayout->Linerlayout 2번 화면
+binding.imgPic2.setOnClickListener {
+    Toast.makeText(this, "2번 화면입니다!", Toast.LENGTH_SHORT).show()
+}*/
 
 /* 암호를 보여줬다 감추는 이벤트 처리
 binding.chbVisible.isChecked = false
