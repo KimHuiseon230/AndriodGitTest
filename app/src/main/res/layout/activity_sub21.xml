@@ -96,12 +96,7 @@
         android:layout_below="@id/btnCenter"
         android:layout_centerHorizontal="true"
         android:text="11번" />
-    <Button
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/btnCenter"
-        android:layout_below="@id/btnCenter"
-        android:text="12번" />
+
     <Button
         android:layout_width="70dp"
         android:layout_height="wrap_content"
@@ -121,7 +116,5 @@
         android:layout_above="@id/btnCenter"
         android:layout_toLeftOf="@id/btnCenter"
         android:text="15번" />
-
-
 
 </RelativeLayout>
