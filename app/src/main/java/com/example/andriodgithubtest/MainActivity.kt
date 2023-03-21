@@ -2,51 +2,50 @@ package com.example.andriodgithubtest
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import android.view.View
 import android.widget.Toast
+import com.example.andriodgithubtest.databinding.ActivityMain4Binding
+import com.example.andriodgithubtest.databinding.ActivityMainBinding
 import com.example.andriodgithubtest.databinding.ActivitySub23Binding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySub23Binding
-
+// 타이머를 만들어 시작, 멈춤, 리셋을 설정하여 동작구현
+class MainActivity : AppCompatActivity(), View.OnClickListener {
+    lateinit var binding: ActivityMainBinding
+    var pauseTime = 0L
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySub23Binding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.btnStart.setOnClickListener(this)
+        binding.btnStop.setOnClickListener(this)
+        binding.btnReset.setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_start -> {
+                binding.chronometer.base = SystemClock.elapsedRealtime() + pauseTime
+                binding.chronometer.start()
+                binding.btnStart.isEnabled = false
+                binding.btnStop.isEnabled = true
+                binding.btnReset.isEnabled = true
+            }
+            R.id.btn_stop -> {
+                pauseTime = binding.chronometer.base - SystemClock.elapsedRealtime()
+                binding.chronometer.stop()
+                binding.btnStart.isEnabled = true
+                binding.btnStop.isEnabled = false
+                binding.btnReset.isEnabled = true
+            }
+            R.id.btn_reset -> {
+                binding.chronometer.base = SystemClock.elapsedRealtime()
+                binding.chronometer.stop()
+                pauseTime = 0L
+                binding.btnStart.isEnabled = true
+                binding.btnStop.isEnabled = false
+                binding.btnReset.isEnabled = false
+            }
+        }
     }
 }
-
-/*binding.btnSelect1.setOnClickListener {
-    binding.screen1.visibility = View.VISIBLE
-    binding.screen2.visibility = View.INVISIBLE
-}
-binding.btnSelect2.setOnClickListener {
-    binding.screen1.visibility = View.INVISIBLE
-    binding.screen2.visibility = View.VISIBLE
-}
-//FameLayout->Linerlayout 1번 화면
-binding.imgPic1.setOnClickListener {
-    Toast.makeText(this, "1번 화면입니다!", Toast.LENGTH_SHORT).show()
-}
-//FameLayout->Linerlayout 2번 화면
-binding.imgPic2.setOnClickListener {
-    Toast.makeText(this, "2번 화면입니다!", Toast.LENGTH_SHORT).show()
-}*/
-
-/* 암호를 보여줬다 감추는 이벤트 처리
-binding.chbVisible.isChecked = false
-binding.chbVisible.text = "invisible"
-
-binding.chbVisible.setOnClickListener {
-    //암호를 보여줄 것
-    if (binding.chbVisible.isChecked == true) {
-        binding.edtPassword2.inputType = InputType.TYPE_CLASS_TEXT
-        binding.chbVisible.text = "visible"
-    }
-    //암호를 보여주지 말것
-    else {
-        binding.edtPassword2.inputType =
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        binding.chbVisible.text = "invisible"
-    }
-}*/

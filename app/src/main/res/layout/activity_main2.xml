@@ -5,10 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity2">
-    <ImageView
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/ckbCilck1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="클릭"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/ckbCilck2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="클릭"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/ckbCilck3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="클릭"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/ckbCilck4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="클릭"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:src="@drawable/img002"/>
 
 </LinearLayout>

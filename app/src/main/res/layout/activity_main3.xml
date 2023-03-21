@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
+    android:orientation="vertical"
+    tools:context=".MainActivity3"
+   >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/ivP3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        android:layout_margin="30dp"
+        app:srcCompat="@drawable/img002" />
+
+    <Button
+        android:id="@+id/btnClick1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#6C6C6C"
+        android:text="button1"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnClick2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button2"
+        android:layout_gravity="center"
+        android:backgroundTint="#6C6C6C"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/btnClick3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button3"
+        android:layout_gravity="center"
+        android:backgroundTint="#6C6C6C"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <Button
+        android:id="@+id/btnClick4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="button4"
+        android:layout_gravity="center"
+        android:backgroundTint="#6C6C6C"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+</LinearLayout>
